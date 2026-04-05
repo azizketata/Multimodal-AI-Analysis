@@ -1,24 +1,59 @@
-results
-study
-meetings
+# ==============================================================================
+# Meeting Process Twin — .gitignore
+# ==============================================================================
+
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
 **/__pycache__/
 *.pyc
 *.pyo
-thesis
+*.egg-info/
+dist/
+build/
+.eggs/
 
-# Large files
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Large media files (videos, audio) ─────────────────────────────────────────
+# Meeting videos are 26 GB total — download via download_meetings.py
 *.mp4
 *.wav
 *.mp3
 *.avi
 *.mkv
+*.webm
 
-# Golden dataset (too large for GitHub)
+# ── Data directories (too large or sensitive for GitHub) ──────────────────────
+# 54 meeting directories with videos, raw events, and conformance results
+meetings/
+
+# Golden dataset (9,348 human annotations, 10 Seattle meetings)
 Golden-dataset/
 
-# Database files
-*.db
+# Pipeline output from test runs
+results/
 
-# Batch output
-batch_output.log
+# Focus group reviews (participant data — anonymized but not for public repo)
+reviews/
+
+# ── Thesis (LaTeX source lives on Overleaf) ───────────────────────────────────
+thesis/
+
+# ── Generated / intermediate files ────────────────────────────────────────────
+*.db
+*.log
+ablation_results.csv
+classified_events.csv
+golden_comparison_results.json
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
